@@ -8,6 +8,10 @@ bandit
 # Data Science
 pandas
 
+# Web
+requests
+flask
+
 # Dashboards and Plotting
 plotly
 dash

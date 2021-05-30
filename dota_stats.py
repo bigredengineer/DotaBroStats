@@ -1,7 +1,8 @@
-import json
 import requests
 import pprint
 import time
+
+from utils import functions
 
 LOBBY_RANKED = 7
 
@@ -14,19 +15,6 @@ class DotaPlayerStats:
         self.open_id = open_id
         self.player_info = {}
         self.ranked_matches = []
-
-
-def create_hero_lookup(hero_records: list):
-    """
-    Convert input hero list to a dictionary based on 'hero_id'
-    :param hero_records:  List of the Hero info data structure returned by OpenDotaApi
-    :return: dictionary of hero records indexed by hero ID
-    """
-    lookup = {}
-    for rec in hero_records:
-        lookup[rec['id']] = rec
-
-    return lookup
 
 
 # ID's found manually on opendota.com
@@ -61,7 +49,7 @@ print(f"BigRed Match Count: {len(bigred_match_info)} ({len(r.json())}) [Took: {e
 # Load Hero data to map Hero IDs
 r = requests.get("https://api.opendota.com/api/heroes")
 hero_recs = r.json()
-hero_info = create_hero_lookup(hero_recs)
+hero_info = functions.create_hero_lookup(hero_recs)
 end_heroes = time.perf_counter()
 print(f"Loaded {len(hero_info)} Hero Info [Took: {end_heroes - end_matches}s]")
 

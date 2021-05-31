@@ -1,0 +1,21 @@
+# Unit testing
+pytest
+coverage
+flake8
+isort
+bandit
+
+# Data Science
+pandas
+
+# Web
+requests
+flask
+
+# Dashboards and Plotting
+plotly
+dash
+dash-bootstrap-components
+
+# Utils
+humanize

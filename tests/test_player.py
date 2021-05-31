@@ -1,4 +1,4 @@
-from utils.player import DotaPlayerStats
+from dota_utils.player import DotaPlayerStats
 
 
 class TestDotaPlayerStats:

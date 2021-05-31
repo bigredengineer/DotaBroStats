@@ -3,8 +3,8 @@ import time
 
 import requests
 
-from utils import functions
-from utils.player import DotaPlayerStats
+from dota_utils import functions
+from dota_utils.player import DotaPlayerStats
 
 LOBBY_RANKED = 7
 

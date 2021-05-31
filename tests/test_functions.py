@@ -1,4 +1,4 @@
-from utils import functions
+from dota_utils import functions
 
 
 class TestBasicFunctions:

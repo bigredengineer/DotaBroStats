@@ -1,21 +1,12 @@
-import requests
 import pprint
 import time
 
+import requests
+
 from utils import functions
+from utils.player import DotaPlayerStats
 
 LOBBY_RANKED = 7
-
-
-class DotaPlayerStats:
-    """Class for collecting an individual player's stats by querying OpenDota APIs"""
-    API_URL = "https://api.opendota.com/api"
-
-    def __init__(self, open_id):
-        self.open_id = open_id
-        self.player_info = {}
-        self.ranked_matches = []
-
 
 # ID's found manually on opendota.com
 bigred_steamid = 76561197999367273
@@ -60,5 +51,3 @@ pprint.pprint(latest_match)
 print(f"Most Recent BigRed Hero: {latest_hero} "
       f"(ID: {latest_match['hero_id']})")
 print(f"Total Time: {time.perf_counter() - start_players: .2f}s")
-
-

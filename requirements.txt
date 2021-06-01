@@ -1,5 +1,6 @@
 # Unit testing
 pytest
+mock
 coverage
 flake8
 isort

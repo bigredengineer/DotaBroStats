@@ -3,18 +3,8 @@ from mock import patch
 import pytest
 
 from dota_utils import player
-from dota_utils.functions import OpenDotaError
+from dota_utils.common import OpenDotaError, MockRequest
 from dota_utils.player import DotaPlayerStats
-
-
-class MockRequest:
-    def __init__(self, status_code, message):
-        self.status_code = status_code
-        self.ok = True if status_code == 200 else False
-        self.text = message
-
-    def json(self):
-        return json.loads(self.text)
 
 
 class TestDotaPlayerStats:

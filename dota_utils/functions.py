@@ -1,10 +1,7 @@
 import requests
+import json
 
-
-class OpenDotaError(Exception):
-    def __init__(self, status_code, message):
-        self.message = f"Status: {status_code}. Error: {message}"
-        super().__init__(self.message)
+from dota_utils.common import OpenDotaError
 
 
 def create_hero_lookup(hero_records: list):

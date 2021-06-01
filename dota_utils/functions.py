@@ -1,3 +1,10 @@
+import requests
+
+
+class OpenDotaError(Exception):
+    def __init__(self, status_code, message):
+        self.message = f"Status: {status_code}. Error: {message}"
+        super().__init__(self.message)
 
 
 def create_hero_lookup(hero_records: list):
@@ -11,3 +18,13 @@ def create_hero_lookup(hero_records: list):
         lookup[rec['id']] = rec
 
     return lookup
+
+
+def get_heroes():
+    """Create a dictionary based on hero id of all Dota heros"""
+    r = requests.get("https://api.opendota.com/api/heroes")
+    if r.ok:
+        hero_recs = create_hero_lookup(r.json())
+        return hero_recs
+    else:
+        raise OpenDotaError(r.status_code, r.text)
